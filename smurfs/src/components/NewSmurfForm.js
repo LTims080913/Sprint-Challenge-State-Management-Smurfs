@@ -58,15 +58,15 @@ const NewSmurfForm = props => {
                     onChange={handleChange}
                 />
             </label>
-            <button type="submit" onClick={() => props.postCharacter(newCharacter)}>Add Your Smurf</button>
+            <button type="submit" onClick={() => props.postCharacter(newCharacter)} >Add Your Smurf</button>
         </form>
     )
 }
 
 const mapStateToProps = state => {
     return {
-    //   addingCharacter: state.addingCharacter
-    newCharacter: state.newCharacter
+      addingCharacter: state.addingCharacter
+    
     };
   };
 export default connect(mapStateToProps, {postCharacter}) (NewSmurfForm)

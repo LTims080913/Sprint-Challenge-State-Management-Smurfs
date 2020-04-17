@@ -13,7 +13,8 @@ const initialState = {
     error: ''
 }
 
-const reducer = (state = initialState, action) => {
+function reducer  (state = initialState, action)  {
+    console.log({action})
     switch(action.type) {
         case FETCH_CHARACTERS_START:
             return {
@@ -21,28 +22,27 @@ const reducer = (state = initialState, action) => {
                 fetchingCharacters: true,
                 error: action.payload
 
-            };
+            }
         case FETCH_CHARACTERS_SUCCESS:
             return {
                 ...state,
                 characters: action.payload,
                 fetchingCharacters: false,
                 error: ''
-            };
+            }
         case FETCH_CHARACTERS_FAIL:
             return {
                 ...state,
                 fetchingCharacters: false,
                 error: action.payload
-            };
-        case POST_CHARACTER_SUCCESS:
-            const newCharacter = {
-                name: action.payload,
-                age: '',
-                height: '',
-                id: Date.now()
             }
-            return {...state, characters: [state.characters, newCharacter]}
+        case POST_CHARACTER_SUCCESS:
+            // const newCharacter = {
+            //     name: action.payload,
+            //     age: '',
+            //     height: '',
+            // }
+            return {...state, characters: action.payload}
         case POST_CHARACTER_FAIL:
             return {
                 ...state, 
